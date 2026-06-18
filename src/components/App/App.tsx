@@ -14,13 +14,11 @@ function App() {
   const [movies, setMovies] = useState<Movie[]>([]);
   const [isLoader, setIsLoader] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-  const [selectedMovieId, setSelectedMovieId] = useState<number | null>(null);
+  const [selectedMovie, setSelectedMovie] = useState<Movie | null>(null);
 
-  const openModale = (id: number) => setSelectedMovieId(id);
+  const openModale = (movie: Movie) => setSelectedMovie(movie);
 
-  const closeModale = () => setSelectedMovieId(null);
-
-  const selectedMovie = movies.find(movie => movie.id === selectedMovieId);
+  const closeModale = () => setSelectedMovie(null);
 
   const handleSearch = async (query: string) => {
     try {
